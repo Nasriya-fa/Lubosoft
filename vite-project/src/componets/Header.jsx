@@ -1,7 +1,7 @@
 import React from "react";
 import SearchInput from "./SearchInput";
 import { FiList, FiMoon, FiSun, FiUser } from "react-icons/fi";
-import userDarkMode from "../../../hooks/userDarkMode";
+import userDarkMode from "../../hooks/userDarkMode";
 const Header = ({ searchValue, setSearchValue, toggleMenu }) => {
   const [isDarkMode, toggleDarkMode] = userDarkMode()
   return (
