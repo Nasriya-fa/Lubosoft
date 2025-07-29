@@ -11,7 +11,7 @@ const Sidebar = ({ categories, selectedCategory, setSelectedCategory, mobileNavb
         ></div>
       )}
       <aside
-        className={`fixed lg:relative z-30 w-64 bg-blue-600 h-[calc(100vh-4rem)] shadow-2xl pt-4 transition-all duration-300 ease-in-out
+        className={`fixed lg:relative z-30 w-64 bg-blue-600 dark:bg-gray-800 h-[calc(100vh-4rem)] shadow-2xl pt-4 transition-all duration-300 ease-in-out
   ${mobileNavbarOpen ? 'left-0' : '-left-64'} lg:left-0`}      >
         <ul>
           {categories.map((category) => (
@@ -21,7 +21,7 @@ const Sidebar = ({ categories, selectedCategory, setSelectedCategory, mobileNavb
                   setSelectedCategory(category)
                   setMobileNavbarOpen(false)
                 }}
-                className={`w-full px-2 py-3 text-xl font-bold rounded  ${selectedCategory === category ? 'bg-gray-100 text-blue-600' : "hover-bg-blue-200 text-white"}`}
+                className={`w-full px-2 py-3 text-xl font-bold rounded  ${selectedCategory === category ? 'bg-gray-100 text-blue-600 dark:text-green-600' : "hover-bg-blue-200 text-white"}`}
               >
                 {category}
               </button>

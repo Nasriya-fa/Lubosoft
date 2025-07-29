@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <>
-      <div className="min-h-screen bg-blue-600">
+      <div className="min-h-screen bg-blue-600 dark:bg-gray-700 text-white">
         <Header
           searchValue={searchValue}
           setSearchValue={setSearchValue}
