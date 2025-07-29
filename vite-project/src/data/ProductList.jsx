@@ -12,7 +12,6 @@ export const products = [
     price: 899,
     category: "Camera",
     image: "https://www.adorama.com/images/Large/ICA5DM4.jpg",
-    car:"car name"
   },
  {
     id: 3,
@@ -20,8 +19,6 @@ export const products = [
     price: 899,
     category: "Camera",
     image: "https://www.adorama.com/images/Large/ICA5DM4.jpg",
-    car:"car name"
-
   },
  {
     id: 4,

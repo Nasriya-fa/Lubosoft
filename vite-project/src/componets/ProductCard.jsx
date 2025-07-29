@@ -1,6 +1,10 @@
 import React from "react";
 import { MdAddShoppingCart } from "react-icons/md";
-const ProductCard = ({product,addToCart}) => {
+const ProductCard = ({product}) => {
+
+  const addToCart = (product) => {
+    console.log(`Add To Card:${product.title}`);
+  };
   return (
     <div className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg bg-gray-100 transition-shadow p-3">
       <img
@@ -13,7 +17,7 @@ const ProductCard = ({product,addToCart}) => {
         <p className=" mt-1 font-semibold text-2xl">$ {product.price}</p>
         </div>
         <div>
-        <button className="mt-3 w-full bg-green-800 text-white py-2 rounded hover:bg-green-900 transition-colors px-3 text-center">
+        <button className="mt-3 w-full bg-green-800 text-white py-2 rounded hover:bg-green-900 transition-colors px-3 text-center" onClick={()=>addToCart(product)}>
           <MdAddShoppingCart size={30} className="inline "/>
         </button>
         </div>

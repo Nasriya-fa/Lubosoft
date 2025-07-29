@@ -4,49 +4,59 @@ import Sidebar from "./componets/Sidebar";
 import ProductCard from "./componets/ProductCard";
 import { products } from "./data/ProductList";
 import { MdOutlineChevronRight } from "react-icons/md";
+import { PiEmptyThin } from "react-icons/pi";
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredProducts, setFilteredProducts] = useState(products);
-
+  const [mobileNavbarOpen, setMobileNavbarOpen] = useState(false)
   const categories = [
     "All",
     ...new Set(products.map((product) => product.category)),
   ];
-
+  //SEARCH INPUT FILTER
   useEffect(() => {
     let result = products;
-    if (searchTerm) {
+    if (searchValue) {
       result = result.filter((product) =>
-        product.title.toLowerCase().includes(searchTerm.toLowerCase())
+        product.title.toLowerCase().includes(searchValue.toLowerCase())
       );
     }
+    //SEARCH CATEGORY FOR NAVBAR
     if (selectedCategory && selectedCategory !== "All") {
       result = result.filter(
         (product) => product.category === selectedCategory
       );
     }
     setFilteredProducts(result);
-  }, [searchTerm, selectedCategory]);
-  const addToCart = (product) => {
-    console.log(`Add To Card:${product.title}`);
-  };
+  }, [searchValue, selectedCategory]);
+
+  const toggleMenu = () => {
+    setMobileNavbarOpen(!mobileNavbarOpen)
+  }
+
   return (
     <>
       <div className="min-h-screen bg-blue-600">
-        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-
+        <Header
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          toggleMenu={toggleMenu}
+        />
         <div className="flex">
           <Sidebar
             categories={categories}
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
+            mobileNavbarOpen={mobileNavbarOpen}
+            setMobileNavbarOpen={setMobileNavbarOpen}
+
           />
 
-          <main className="flex-1 p-4 min-h-[calc(100vh-4rem)] ">
+          <main className="flex-1 p-5 min-h-[calc(100vh-4rem)] ">
             <h1 className="text-2xl font-bold mb-6 text-white">
-              Products{" "}
-              <MdOutlineChevronRight className="lg:hidden inline"/>
+              categories
+              <MdOutlineChevronRight className="lg:hidden inline" />
               <span className=" font-medium text-xl lg:hidden">{selectedCategory}</span>
             </h1>
 
@@ -55,14 +65,15 @@ const App = () => {
                 <ProductCard
                   key={product.id}
                   product={product}
-                  addToCart={addToCart}
+
                 />
               ))}
             </div>
 
             {filteredProducts.length === 0 && (
-              <div className="text-center py-10">
-                <p className="text-gray-500">No products found.</p>
+              <div className="text-center py-10 flex justify-center gap-5">
+                <PiEmptyThin size={40} className="inline text-white font-extrabold" />
+                <p className="text-gray-100 text-3xl">No products found.</p>
               </div>
             )}
           </main>
