@@ -3,6 +3,7 @@ import React from "react";
 const Sidebar = ({ categories, selectedCategory, setSelectedCategory, mobileNavbarOpen, setMobileNavbarOpen }) => {
   return (
     <>
+   {/* Sidebar overlay for mobile */}
       {mobileNavbarOpen && (
         <div className="fixed inset-0 bg-gray bg-opacity-10 z-20 lg:hidden"
           onClick={() =>
@@ -10,6 +11,7 @@ const Sidebar = ({ categories, selectedCategory, setSelectedCategory, mobileNavb
           }
         ></div>
       )}
+      {/* sidebar for both mobile & desktop */}
       <aside
         className={`fixed lg:relative z-30 w-64 bg-blue-600 dark:bg-gray-800 h-[calc(100vh-4rem)] shadow-2xl pt-4 transition-all duration-300 ease-in-out
   ${mobileNavbarOpen ? 'left-0' : '-left-64'} lg:left-0`}      >

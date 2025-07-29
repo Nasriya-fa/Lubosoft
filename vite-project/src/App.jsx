@@ -10,6 +10,7 @@ const App = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [filteredProducts, setFilteredProducts] = useState(products);
   const [mobileNavbarOpen, setMobileNavbarOpen] = useState(false)
+  
   const categories = [
     "All",
     ...new Set(products.map((product) => product.category)),
@@ -30,7 +31,7 @@ const App = () => {
     }
     setFilteredProducts(result);
   }, [searchValue, selectedCategory]);
-
+  // TOGGLE MENU FUNCTION
   const toggleMenu = () => {
     setMobileNavbarOpen(!mobileNavbarOpen)
   }
@@ -38,12 +39,14 @@ const App = () => {
   return (
     <>
       <div className="min-h-screen bg-blue-600 dark:bg-gray-700 text-white">
+        {/* Header */}
         <Header
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           toggleMenu={toggleMenu}
         />
         <div className="flex">
+          {/* sidebar */}
           <Sidebar
             categories={categories}
             selectedCategory={selectedCategory}
@@ -52,7 +55,7 @@ const App = () => {
             setMobileNavbarOpen={setMobileNavbarOpen}
 
           />
-
+          {/* mainsection */}
           <main className="flex-1 p-5 min-h-[calc(100vh-4rem)] ">
             <h1 className="text-2xl font-bold mb-6 text-white">
               categories
@@ -69,7 +72,7 @@ const App = () => {
                 />
               ))}
             </div>
-
+            {/* For empty page */}
             {filteredProducts.length === 0 && (
               <div className="text-center py-10 flex justify-center gap-5">
                 <PiEmptyThin size={40} className="inline text-white font-extrabold" />
