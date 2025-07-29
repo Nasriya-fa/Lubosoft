@@ -7,7 +7,7 @@ const Header = () => {
     <header className="bg-blue-500 flex justify-between items-center p-4">
       <div className="flex gap-6">
         {/* Company logo */}
-        <div className="text-white text-xl bg-purple-400 text-center px-3 py-1 rounded-sm">
+        <div className="text-white font-bold text-xl bg-purple-400 text-center px-3 py-1 rounded-sm">
           Logo
         </div>
         {/* heading */}
