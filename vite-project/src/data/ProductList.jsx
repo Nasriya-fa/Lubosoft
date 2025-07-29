@@ -11,7 +11,8 @@ export const products = [
     title: "DSLR 108Mp",
     price: 899,
     category: "Camera",
-    image: "https://www.adorama.com/images/Large/ICA5DM4.jpg"
+    image: "https://www.adorama.com/images/Large/ICA5DM4.jpg",
+    car:"car name"
   },
  {
     id: 3,
